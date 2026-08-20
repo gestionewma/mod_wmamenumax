@@ -8,7 +8,7 @@
  * @copyright   (C) 2026 WMA Web Maker Agency. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @link        https://www.webmakeragency.it
- * @version     1.0.0
+ * @version     1.0.10
  * @date        11/08/2026
  * @file        src/Field/WmaInfoField.php
  */
@@ -28,7 +28,7 @@ class WmaInfoField extends FormField
 
     public function getInput(): string
     {
-        $version      = '1.0.0';
+        $version      = '1.0.10';
         $creationDate = '11/08/2026';
         $author       = 'WMA Web Maker Agency';
         $email        = 'giusebos@libero.it';

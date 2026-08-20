@@ -5,7 +5,7 @@
  * @author      Giuseppe Bosco <giusebos@libero.it>
  * @copyright   (C) 2026 WMA Web Maker Agency. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
- * @version     1.0.0
+ * @version     1.0.10
  * @date        11/08/2026
  * @file        media/js/admin-wmamenumax.js
  */

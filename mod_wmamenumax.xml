@@ -7,7 +7,7 @@
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <authorEmail>giusebos@libero.it</authorEmail>
     <authorUrl>https://www.webmakeragency.it</authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.10</version>
     <description>MOD_WMAMENUMAX_DESCRIPTION</description>
     <namespace path="src">Wma\Module\WmaMenumax</namespace>
 
@@ -438,4 +438,8 @@
 
         </fields>
     </config>
+
+    <updateservers>
+        <server type="extension" priority="1" name="WMAMenuMax Updates">https://raw.githubusercontent.com/gestionewma/mod_wmamenumax/main/mod_wmamenumax_update.xml</server>
+    </updateservers>
 </extension>

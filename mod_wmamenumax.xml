@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="6.0" client="site" method="upgrade">
     <name>MOD_WMAMENUMAX</name>
-    <author>WMA Web Maker Agency</author>
-    <creationDate>11/08/2026</creationDate>
+    <author>Team Developer by WMA Web Maker Agency</author>
+    <creationDate>20/08/2026</creationDate>
     <copyright>(C) 2026 WMA Web Maker Agency. All rights reserved.</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <authorEmail>giusebos@libero.it</authorEmail>
-    <authorUrl>https://www.webmakeragency.it</authorUrl>
-    <version>1.0.10</version>
+    <authorUrl>https://www.wma.ovh</authorUrl>
+    <version>1.0.11</version>
     <description>MOD_WMAMENUMAX_DESCRIPTION</description>
     <namespace path="src">Wma\Module\WmaMenumax</namespace>
 

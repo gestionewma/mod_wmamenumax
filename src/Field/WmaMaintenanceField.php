@@ -9,7 +9,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @link        https://www.wma.ovh
  * @version     1.0.11
- * @date        11/08/2026
+ * @date        20/08/2026
  * @file        src/Field/WmaMaintenanceField.php
  */
 

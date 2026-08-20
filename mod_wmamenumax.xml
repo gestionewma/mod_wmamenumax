@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="6.0" client="site" method="upgrade">
+    <name>MOD_WMAMENUMAX</name>
+    <author>WMA Web Maker Agency</author>
+    <creationDate>11/08/2026</creationDate>
+    <copyright>(C) 2026 WMA Web Maker Agency. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>giusebos@libero.it</authorEmail>
+    <authorUrl>https://www.webmakeragency.it</authorUrl>
+    <version>1.0.0</version>
+    <description>MOD_WMAMENUMAX_DESCRIPTION</description>
+    <namespace path="src">Wma\Module\WmaMenumax</namespace>
+
+    <files>
+        <filename module="mod_wmamenumax">mod_wmamenumax.php</filename>
+        <folder>services</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+        <folder>forms</folder>
+    </files>
+
+    <languages folder="language">
+        <language tag="it-IT">it-IT/mod_wmamenumax.ini</language>
+        <language tag="it-IT">it-IT/mod_wmamenumax.sys.ini</language>
+        <language tag="en-GB">en-GB/mod_wmamenumax.ini</language>
+        <language tag="en-GB">en-GB/mod_wmamenumax.sys.ini</language>
+    </languages>
+
+    <media destination="mod_wmamenumax" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+        <folder>images</folder>
+        <filename>joomla.asset.json</filename>
+    </media>
+
+    <config>
+        <fields name="params">
+
+            <!-- ── Tab Menu ─────────────────────────────────────────────── -->
+            <fieldset name="menu"
+                      label="MOD_WMAMENUMAX_FIELDSET_MENU"
+                      addfieldprefix="Joomla\Component\Menus\Administrator\Field">
+                <field name="menutype" type="menu"
+                    label="MOD_WMAMENUMAX_MENUTYPE"
+                    description="MOD_WMAMENUMAX_MENUTYPE_DESC"
+                    clientid="0" />
+                <field name="startLevel" type="number"
+                    label="MOD_WMAMENUMAX_STARTLEVEL"
+                    description="MOD_WMAMENUMAX_STARTLEVEL_DESC"
+                    default="1"
+                    min="1"
+                    max="10"
+                    step="1" />
+                <field name="endLevel" type="number"
+                    label="MOD_WMAMENUMAX_ENDLEVEL"
+                    description="MOD_WMAMENUMAX_ENDLEVEL_DESC"
+                    default="0"
+                    min="0"
+                    max="10"
+                    step="1" />
+            </fieldset>
+
+            <!-- ── Tab Colonne ──────────────────────────────────────────── -->
+            <fieldset name="columns" label="MOD_WMAMENUMAX_FIELDSET_COLUMNS">
+                <field name="columns" type="number"
+                    label="MOD_WMAMENUMAX_COLUMNS"
+                    description="MOD_WMAMENUMAX_COLUMNS_DESC"
+                    default="3"
+                    min="1"
+                    max="5"
+                    step="1" />
+                <field name="distribution" type="radio"
+                    label="MOD_WMAMENUMAX_DISTRIBUTION"
+                    description="MOD_WMAMENUMAX_DISTRIBUTION_DESC"
+                    class="btn-group btn-group-yesno"
+                    default="auto">
+                    <option value="auto">MOD_WMAMENUMAX_DISTRIBUTION_AUTO</option>
+                    <option value="manual">MOD_WMAMENUMAX_DISTRIBUTION_MANUAL</option>
+                </field>
+                <field name="col1_count" type="number"
+                    label="MOD_WMAMENUMAX_COL1_COUNT"
+                    description="MOD_WMAMENUMAX_COL_COUNT_DESC"
+                    default="0"
+                    min="0"
+                    max="100"
+                    step="1"
+                    showon="distribution:manual" />
+                <field name="col2_count" type="number"
+                    label="MOD_WMAMENUMAX_COL2_COUNT"
+                    description="MOD_WMAMENUMAX_COL_COUNT_DESC"
+                    default="0"
+                    min="0"
+                    max="100"
+                    step="1"
+                    showon="distribution:manual" />
+                <field name="col3_count" type="number"
+                    label="MOD_WMAMENUMAX_COL3_COUNT"
+                    description="MOD_WMAMENUMAX_COL_COUNT_DESC"
+                    default="0"
+                    min="0"
+                    max="100"
+                    step="1"
+                    showon="distribution:manual" />
+                <field name="col4_count" type="number"
+                    label="MOD_WMAMENUMAX_COL4_COUNT"
+                    description="MOD_WMAMENUMAX_COL_COUNT_DESC"
+                    default="0"
+                    min="0"
+                    max="100"
+                    step="1"
+                    showon="distribution:manual" />
+                <field name="col5_count" type="number"
+                    label="MOD_WMAMENUMAX_COL5_COUNT"
+                    description="MOD_WMAMENUMAX_COL_COUNT_DESC"
+                    default="0"
+                    min="0"
+                    max="100"
+                    step="1"
+                    showon="distribution:manual" />
+                <field name="coltitles" type="subform"
+                    label="MOD_WMAMENUMAX_COLTITLES"
+                    description="MOD_WMAMENUMAX_COLTITLES_DESC"
+                    multiple="true"
+                    min="0"
+                    max="5"
+                    layout="joomla.form.field.subform.repeatable-table"
+                    formsource="modules/mod_wmamenumax/forms/coltitle.xml"
+                    buttons="add,remove,move" />
+            </fieldset>
+
+            <!-- ── Tab Colori Desktop ──────────────────────────────────── -->
+            <fieldset name="colors_desktop" label="MOD_WMAMENUMAX_FIELDSET_COLORS_DESKTOP">
+                <field name="title_color" type="color"
+                    label="MOD_WMAMENUMAX_TITLE_COLOR"
+                    description="MOD_WMAMENUMAX_TITLE_COLOR_DESC"
+                    default="#046aca"
+                    format="hex" />
+                <field name="title_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="mega_border_color" type="color"
+                    label="MOD_WMAMENUMAX_MEGA_BORDER_COLOR"
+                    description="MOD_WMAMENUMAX_MEGA_BORDER_COLOR_DESC"
+                    default="#046aca"
+                    format="hex" />
+                <field name="mega_border_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="mega_outline_color" type="color"
+                    label="MOD_WMAMENUMAX_MEGA_OUTLINE_COLOR"
+                    description="MOD_WMAMENUMAX_MEGA_OUTLINE_COLOR_DESC"
+                    default="#e9ecef"
+                    format="hex" />
+                <field name="mega_outline_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="mega_bg_color" type="color"
+                    label="MOD_WMAMENUMAX_MEGA_BG_COLOR"
+                    description="MOD_WMAMENUMAX_MEGA_BG_COLOR_DESC"
+                    default="#ffffff"
+                    format="hex" />
+                <field name="mega_bg_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="top_bg_color" type="color"
+                    label="MOD_WMAMENUMAX_TOP_BG_COLOR"
+                    description="MOD_WMAMENUMAX_TOP_BG_COLOR_DESC"
+                    default="#ffffff"
+                    format="hex" />
+                <field name="top_bg_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="top_color" type="color"
+                    label="MOD_WMAMENUMAX_TOP_COLOR"
+                    description="MOD_WMAMENUMAX_TOP_COLOR_DESC"
+                    default="#212529"
+                    format="hex" />
+                <field name="top_color_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="top_hover_color" type="color"
+                    label="MOD_WMAMENUMAX_TOP_HOVER_COLOR"
+                    description="MOD_WMAMENUMAX_TOP_HOVER_COLOR_DESC"
+                    default="#046aca"
+                    format="hex" />
+                <field name="top_hover_color_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="top_current_color" type="color"
+                    label="MOD_WMAMENUMAX_TOP_CURRENT_COLOR"
+                    description="MOD_WMAMENUMAX_TOP_CURRENT_COLOR_DESC"
+                    default="#046aca"
+                    format="hex" />
+                <field name="top_current_color_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="child_color" type="color"
+                    label="MOD_WMAMENUMAX_CHILD_COLOR"
+                    description="MOD_WMAMENUMAX_CHILD_COLOR_DESC"
+                    default="#212529"
+                    format="hex" />
+                <field name="child_color_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="child_hover_bg_color" type="color"
+                    label="MOD_WMAMENUMAX_CHILD_HOVER_BG_COLOR"
+                    description="MOD_WMAMENUMAX_CHILD_HOVER_BG_COLOR_DESC"
+                    default="#e9ecef"
+                    format="hex" />
+                <field name="child_hover_bg_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+            </fieldset>
+
+            <!-- ── Tab Colori Mobile ───────────────────────────────────── -->
+            <fieldset name="colors_mobile" label="MOD_WMAMENUMAX_FIELDSET_COLORS_MOBILE">
+                <field name="mobile_title_color" type="color"
+                    label="MOD_WMAMENUMAX_MOBILE_TITLE_COLOR"
+                    description="MOD_WMAMENUMAX_TITLE_COLOR_DESC"
+                    default="#046aca"
+                    format="hex" />
+                <field name="mobile_title_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="mobile_mega_bg_color" type="color"
+                    label="MOD_WMAMENUMAX_MOBILE_MEGA_BG_COLOR"
+                    description="MOD_WMAMENUMAX_MEGA_BG_COLOR_DESC"
+                    default="#ffffff"
+                    format="hex" />
+                <field name="mobile_mega_bg_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="mobile_top_bg_color" type="color"
+                    label="MOD_WMAMENUMAX_MOBILE_TOP_BG_COLOR"
+                    description="MOD_WMAMENUMAX_TOP_BG_COLOR_DESC"
+                    default="#ffffff"
+                    format="hex" />
+                <field name="mobile_top_bg_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="mobile_top_color" type="color"
+                    label="MOD_WMAMENUMAX_MOBILE_TOP_COLOR"
+                    description="MOD_WMAMENUMAX_TOP_COLOR_DESC"
+                    default="#212529"
+                    format="hex" />
+                <field name="mobile_top_color_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="mobile_top_hover_color" type="color"
+                    label="MOD_WMAMENUMAX_MOBILE_TOP_HOVER_COLOR"
+                    description="MOD_WMAMENUMAX_TOP_HOVER_COLOR_DESC"
+                    default="#046aca"
+                    format="hex" />
+                <field name="mobile_top_hover_color_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="mobile_top_current_color" type="color"
+                    label="MOD_WMAMENUMAX_MOBILE_TOP_CURRENT_COLOR"
+                    description="MOD_WMAMENUMAX_TOP_CURRENT_COLOR_DESC"
+                    default="#046aca"
+                    format="hex" />
+                <field name="mobile_top_current_color_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="mobile_bg_color" type="color"
+                    label="MOD_WMAMENUMAX_MOBILE_BG_COLOR"
+                    description="MOD_WMAMENUMAX_MOBILE_BG_COLOR_DESC"
+                    default="#ffffff"
+                    format="hex" />
+                <field name="mobile_bg_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="mobile_child_color" type="color"
+                    label="MOD_WMAMENUMAX_MOBILE_CHILD_COLOR"
+                    description="MOD_WMAMENUMAX_CHILD_COLOR_DESC"
+                    default="#212529"
+                    format="hex" />
+                <field name="mobile_child_color_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+                <field name="mobile_child_hover_bg_color" type="color"
+                    label="MOD_WMAMENUMAX_MOBILE_CHILD_HOVER_BG_COLOR"
+                    description="MOD_WMAMENUMAX_CHILD_HOVER_BG_COLOR_DESC"
+                    default="#e9ecef"
+                    format="hex" />
+                <field name="mobile_child_hover_bg_opacity" type="number"
+                    label="MOD_WMAMENUMAX_OPACITY"
+                    description="MOD_WMAMENUMAX_OPACITY_DESC"
+                    default="100"
+                    min="0"
+                    max="100"
+                    step="1" />
+            </fieldset>
+
+            <!-- ── Tab Immagini ─────────────────────────────────────────── -->
+            <fieldset name="images" label="MOD_WMAMENUMAX_FIELDSET_IMAGES">
+                <field name="thumb_size" type="number"
+                    label="MOD_WMAMENUMAX_THUMB_SIZE"
+                    description="MOD_WMAMENUMAX_THUMB_SIZE_DESC"
+                    default="100"
+                    min="50"
+                    max="300"
+                    step="10" />
+                <field name="hover_size" type="number"
+                    label="MOD_WMAMENUMAX_HOVER_SIZE"
+                    description="MOD_WMAMENUMAX_HOVER_SIZE_DESC"
+                    default="400"
+                    min="100"
+                    max="1200"
+                    step="50" />
+                <field name="fallback_image" type="media"
+                    label="MOD_WMAMENUMAX_FALLBACK_IMAGE"
+                    description="MOD_WMAMENUMAX_FALLBACK_IMAGE_DESC" />
+            </fieldset>
+
+            <!-- ── Tab Pannello ─────────────────────────────────────────── -->
+            <fieldset name="panel" label="MOD_WMAMENUMAX_FIELDSET_PANEL">
+                <field name="panel_pct" type="number"
+                    label="MOD_WMAMENUMAX_PANEL_PCT"
+                    description="MOD_WMAMENUMAX_PANEL_PCT_DESC"
+                    default="100"
+                    min="1"
+                    max="100"
+                    step="1" />
+            </fieldset>
+
+            <!-- ── Tab SEO ──────────────────────────────────────────────── -->
+            <fieldset name="seo" label="MOD_WMAMENUMAX_FIELDSET_SEO">
+                <field name="title_tag" type="list"
+                    label="MOD_WMAMENUMAX_TITLE_TAG"
+                    description="MOD_WMAMENUMAX_TITLE_TAG_DESC"
+                    default="h3">
+                    <option value="h2">h2</option>
+                    <option value="h3">h3</option>
+                    <option value="p">p</option>
+                    <option value="div">div</option>
+                </field>
+                <field name="seo_jsonld" type="radio"
+                    label="MOD_WMAMENUMAX_SEO_JSONLD"
+                    description="MOD_WMAMENUMAX_SEO_JSONLD_DESC"
+                    class="btn-group btn-group-yesno"
+                    default="1">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+
+            <!-- ── Tab Manutenzione ─────────────────────────────────────── -->
+            <fieldset name="maintenance"
+                      label="MOD_WMAMENUMAX_FIELDSET_MAINTENANCE"
+                      addfieldprefix="Wma\Module\WmaMenumax\Site\Field">
+                <field name="maintenance" type="WmaMaintenance"
+                    label="MOD_WMAMENUMAX_MAINTENANCE"
+                    description="MOD_WMAMENUMAX_MAINTENANCE_DESC"
+                    hiddenLabel="false" />
+            </fieldset>
+
+            <!-- ── Tab Informazioni ─────────────────────────────────────── -->
+            <fieldset name="info"
+                      label="MOD_WMAMENUMAX_FIELDSET_INFO"
+                      addfieldprefix="Wma\Module\WmaMenumax\Site\Field">
+                <field name="credits" type="WmaInfo"
+                    label="MOD_WMAMENUMAX_FIELDSET_INFO"
+                    hiddenLabel="true" />
+            </fieldset>
+
+        </fields>
+    </config>
+</extension>

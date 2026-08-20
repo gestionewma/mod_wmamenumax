@@ -1,0 +1,30 @@
+{
+    "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+    "name": "mod_wmamenumax",
+    "version": "1.0.0",
+    "description": "WMA Menumax module assets",
+    "license": "GPL-2.0-or-later",
+    "assets": [
+        {
+            "name": "mod_wmamenumax.style",
+            "type": "style",
+            "uri": "mod_wmamenumax/wmamenumax.css",
+            "version": "1.0.4"
+        },
+        {
+            "name": "mod_wmamenumax.script",
+            "type": "script",
+            "uri": "mod_wmamenumax/wmamenumax.js",
+            "version": "1.0.4"
+        },
+        {
+            "name": "mod_wmamenumax.admin",
+            "type": "script",
+            "uri": "mod_wmamenumax/admin-wmamenumax.js",
+            "version": "1.0.0",
+            "dependencies": [
+                "core"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="set">
+        <fieldset name="coltitle" label="MOD_WMAMENUMAX_COLTITLES_ITEM">
+            <field name="title" type="text"
+                label="MOD_WMAMENUMAX_COLTITLES_TITLE"
+                description="MOD_WMAMENUMAX_COLTITLES_TITLE_DESC" />
+            <field name="show" type="radio"
+                label="MOD_WMAMENUMAX_COLTITLES_SHOW"
+                class="btn-group btn-group-yesno"
+                default="1">
+                <option value="1">JYES</option>
+                <option value="0">JNO</option>
+            </field>
+            <field name="start_col" type="number"
+                label="MOD_WMAMENUMAX_COLTITLES_START_COL"
+                description="MOD_WMAMENUMAX_COLTITLES_START_COL_DESC"
+                default="1"
+                min="1"
+                max="5"
+                step="1" />
+            <field name="span" type="number"
+                label="MOD_WMAMENUMAX_COLTITLES_SPAN"
+                description="MOD_WMAMENUMAX_COLTITLES_SPAN_DESC"
+                default="1"
+                min="1"
+                max="5"
+                step="1" />
+        </fieldset>
+    </fields>
+</form>

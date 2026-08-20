@@ -3,11 +3,11 @@
     <name>MOD_WMAMENUMAX</name>
     <author>Team Developer by WMA Web Maker Agency</author>
     <creationDate>20/08/2026</creationDate>
-    <copyright>(C) 2026 WMA Web Maker Agency. All rights reserved.</copyright>
+    <copyright>Copyright (C) 2026 Gestionewma. Tutti i diritti riservati.</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <authorEmail>giusebos@libero.it</authorEmail>
     <authorUrl>https://www.wma.ovh</authorUrl>
-    <version>1.0.11</version>
+    <version>1.0.12</version>
     <description>MOD_WMAMENUMAX_DESCRIPTION</description>
     <namespace path="src">Wma\Module\WmaMenumax</namespace>
 

@@ -7,7 +7,7 @@
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <authorEmail>wmaextension@gmail.com</authorEmail>
     <authorUrl>https://www.wma.ovh</authorUrl>
-    <version>1.0.12</version>
+    <version>1.0.13</version>
     <description>MOD_WMAMENUMAX_DESCRIPTION</description>
     <namespace path="src">Wma\Module\WmaMenumax</namespace>
 

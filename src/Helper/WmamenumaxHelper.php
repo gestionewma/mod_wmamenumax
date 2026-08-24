@@ -4,7 +4,7 @@
  * @package     Wma.Module.WmaMenumax
  * @subpackage  mod_wmamenumax
  *
- * @author      Team Developer by WMA Web Maker Agency <giusebos@libero.it>
+* @author      Team Developer by WMA Web Maker Agency <wmaextension@gmail.com>
  * @copyright   (C) 2026 WMA Web Maker Agency. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @link        https://www.wma.ovh
@@ -398,15 +398,22 @@ class WmamenumaxHelper
             return '';
         }
 
-        return json_encode(
+        $json = json_encode(
             [
                 '@context' => 'https://schema.org',
                 '@type'    => 'SiteNavigationElement',
                 'name'     => $names,
                 'url'      => $urls,
             ],
-            JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+            JSON_UNESCAPED_SLASHES
+            | JSON_UNESCAPED_UNICODE
+            | JSON_HEX_TAG
+            | JSON_HEX_AMP
+            | JSON_HEX_APOS
+            | JSON_HEX_QUOT
         );
+
+        return $json !== false ? $json : '';
     }
 
     /**
@@ -795,6 +802,38 @@ class WmamenumaxHelper
     }
 
     /**
+     * Check whether the current user can run maintenance actions.
+     *
+     * @param   int|null  $moduleId  Optional module id for module-level edit checks.
+     *
+     * @return  bool
+     *
+     * @since   1.0.12
+     */
+    private function canRunMaintenance(?int $moduleId = null): bool
+    {
+        $user = Factory::getApplication()->getIdentity();
+
+        if (!$user || $user->guest) {
+            return false;
+        }
+
+        if ($user->authorise('core.admin')) {
+            return true;
+        }
+
+        if ($user->authorise('core.manage', 'com_modules')) {
+            return true;
+        }
+
+        if ($moduleId !== null && $moduleId > 0 && $user->authorise('core.edit', 'com_modules.module.' . $moduleId)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * AJAX: delete all generated thumbnails.
      *
      * @return  JsonResponse
@@ -807,6 +846,10 @@ class WmamenumaxHelper
 
         if (!Session::checkToken('get')) {
             return new JsonResponse(null, Text::_('JINVALID_TOKEN'), true);
+        }
+
+        if (!$this->canRunMaintenance()) {
+            return new JsonResponse(null, Text::_('JERROR_ALERTNOAUTHOR'), true);
         }
 
         $deleted = $this->getThumbHelper()->clearCache();
@@ -834,6 +877,11 @@ class WmamenumaxHelper
 
         $app      = Factory::getApplication();
         $moduleId = (int) $app->getInput()->getInt('id', 0);
+
+        if (!$this->canRunMaintenance($moduleId)) {
+            return new JsonResponse(null, Text::_('JERROR_ALERTNOAUTHOR'), true);
+        }
+
         $params   = $this->getModuleParams($moduleId);
 
         $this->getThumbHelper()->clearCache();

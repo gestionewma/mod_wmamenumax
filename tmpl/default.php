@@ -4,7 +4,7 @@
  * @package     Wma.Module.WmaMenumax
  * @subpackage  mod_wmamenumax
  *
- * @author      Team Developer by WMA Web Maker Agency <giusebos@libero.it>
+* @author      Team Developer by WMA Web Maker Agency <wmaextension@gmail.com>
  * @copyright   (C) 2026 WMA Web Maker Agency. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @link        https://www.wma.ovh
@@ -119,9 +119,11 @@ $inlineCss = '--wma-mm-coltitle:' . $colorVar($colors['title'], $opacities['titl
 if (empty($menu)) {
     return;
 }
+
+$suffixClass = $suffix !== '' ? ' ' . htmlspecialchars($suffix, ENT_QUOTES, 'UTF-8') : '';
 ?>
 
-<nav class="wma-mm<?php echo $suffix !== '' ? ' ' . $suffix : ''; ?>"
+<nav class="wma-mm<?php echo $suffixClass; ?>"
      id="<?php echo $navId; ?>"
      style="<?php echo htmlspecialchars($inlineCss, ENT_QUOTES, 'UTF-8'); ?>"
      data-panel-pct="<?php echo $panelPct; ?>"

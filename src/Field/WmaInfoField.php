@@ -4,7 +4,7 @@
  * @package     Wma.Module.WmaMenumax
  * @subpackage  mod_wmamenumax
  *
- * @author      Team Developer by WMA Web Maker Agency <giusebos@libero.it>
+* @author      Team Developer by WMA Web Maker Agency <wmaextension@gmail.com>
  * @copyright   (C) 2026 WMA Web Maker Agency. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @link        https://www.wma.ovh
@@ -31,7 +31,7 @@ class WmaInfoField extends FormField
         $version      = '1.0.12';
         $creationDate = '20/08/2026';
         $author       = 'Team Developer by WMA Web Maker Agency';
-        $email        = 'giusebos@libero.it';
+        $email        = 'wmaextension@gmail.com';
         $authorUrl    = 'https://www.wma.ovh';
 
         try {

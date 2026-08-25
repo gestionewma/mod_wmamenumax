@@ -12,7 +12,7 @@
             <downloadurl type="full" format="zip">
                 https://github.com/gestionewma/mod_wmamenumax/releases/download/v1.0.14/mod_wmamenumax-v1.0.14.zip</downloadurl>
         </downloads>
-        <checksum type="sha256">b763eb01128953e5aee62ca9e8c4bd313b1e7af9429dfa4af671db1a6d382c2e</checksum>
+        <checksum type="sha256">b6cc7e7b6b599bbb3256b81a6ebbcd552461e8ef8763ed9594c417fcc9f78a15</checksum>
         <targetplatform name="joomla" version="[56].*" />
     </update>
 </updates>

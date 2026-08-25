@@ -28,8 +28,8 @@ class WmaInfoField extends FormField
 
     public function getInput(): string
     {
-        $version      = '1.0.13';
-        $creationDate = '20/08/2026';
+        $version      = '1.0.14';
+        $creationDate = '25/08/2026';
         $author       = 'Team Developer by WMA Web Maker Agency';
         $email        = 'wmaextension@gmail.com';
         $authorUrl    = 'https://www.wma.ovh';

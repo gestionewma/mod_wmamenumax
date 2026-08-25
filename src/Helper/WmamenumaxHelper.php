@@ -35,6 +35,9 @@ use Joomla\Registry\Registry;
  */
 class WmamenumaxHelper
 {
+    private const THUMB_SIZE = 64;
+    private const PANEL_SIZE = 300;
+
     /**
      * Database driver.
      *
@@ -101,8 +104,6 @@ class WmamenumaxHelper
         $inputVars = $app->getInput()->getArray();
         $levels    = $app->getIdentity()->getAuthorisedViewLevels();
 
-        $thumbSize = max(1, (int) $params->get('thumb_size', 100));
-        $hoverSize = max(1, (int) $params->get('hover_size', 400));
         $fallback  = (string) $params->get('fallback_image', '');
 
         $flat = [];
@@ -200,7 +201,7 @@ class WmamenumaxHelper
             $source = $this->getChildSourceImage($item, $app, $fallback);
 
             if ($source !== '') {
-                $thumbs = $this->getThumbs($source, $thumbSize, $hoverSize);
+                $thumbs = $this->getThumbs($source, self::THUMB_SIZE, self::PANEL_SIZE);
                 $child['thumb'] = $thumbs['thumb'];
                 $child['hover'] = $thumbs['hover'];
             }
@@ -565,7 +566,11 @@ class WmamenumaxHelper
             $source = $this->cleanImagePath($fallback);
         }
 
-        return $this->rawUrl($source);
+        if ($source === '') {
+            return '';
+        }
+
+        return $this->getThumbs($source, self::THUMB_SIZE, self::PANEL_SIZE)['hover'];
     }
 
     /**
@@ -886,8 +891,6 @@ class WmamenumaxHelper
 
         $this->getThumbHelper()->clearCache();
 
-        $thumbSize = max(1, (int) $params->get('thumb_size', 100));
-        $hoverSize = max(1, (int) $params->get('hover_size', 400));
         $fallback  = (string) $params->get('fallback_image', '');
 
         $menu = $this->getMenuItems($params, $app);

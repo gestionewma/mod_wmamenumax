@@ -53,15 +53,12 @@ Colors for the desktop menu: column titles, border, background, top level, hover
 
 Mobile menu colors with values separate from desktop.
 
-### Images tab
-
-- `thumb_size`: square thumbnail side.
-- `hover_size`: hover image size.
-- `fallback_image`: fallback image.
-
 ### Panel tab
 
 - `panel_pct`: panel height relative to the tallest column.
+- `fallback_image`: fallback image.
+- Fixed thumbnail size: 64 px.
+- Fixed panel/hover image size: 300 px.
 
 ### SEO tab
 
@@ -106,7 +103,7 @@ You can see the module in action on the WMA site:
 
 ## Version
 
-Current version: `1.0.13`
+Current version: `1.0.14`
 
 ---
 
@@ -167,15 +164,12 @@ Colori del menu desktop: titoli colonna, bordo, sfondo, top level, hover, curren
 
 Colori del menu mobile con valori separati dal desktop.
 
-### Tab Immagini
-
-- `thumb_size`: lato della miniatura quadrata.
-- `hover_size`: dimensione dell'immagine hover.
-- `fallback_image`: immagine di fallback.
-
 ### Tab Pannello
 
 - `panel_pct`: altezza del pannello rispetto alla colonna piu alta.
+- `fallback_image`: immagine di fallback.
+- Dimensione fissa miniatura: 64 px.
+- Dimensione fissa immagine pannello/hover: 300 px.
 
 ### Tab SEO
 
